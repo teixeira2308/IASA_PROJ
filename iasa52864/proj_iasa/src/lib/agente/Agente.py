@@ -17,10 +17,11 @@ class Agente(ABC):
     """
 
     @abstractmethod
-    def percecionar(self):
+    def _percecionar(self):
         """ Obter as perceções do ambiente. """
 
-    # actuar    
+    def _actuar(self, accao):
+        pass
 
     """ Método executar() que serve para executar o pensamento do agente."""
 
@@ -28,12 +29,9 @@ class Agente(ABC):
 
         """ Executar passo de pensamento """
 
-        perececao = self._percecionar()
-        self._controlo.processar(perececao)
-        accao = self._accao()
+        percecao = self._percecionar()
+        accao = self._controlo.processar(percecao)
         if accao is None:
-            return
-        elif accao is not None:
-            self._atuar(accao)
+            self._actuar(accao)
 
 

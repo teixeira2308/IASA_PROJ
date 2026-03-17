@@ -14,3 +14,4 @@ class Controlo(ABC):
     @abstractmethod
     def processar(self, percecao):
         """ Processar perceção gerando uma ação """
+        pass

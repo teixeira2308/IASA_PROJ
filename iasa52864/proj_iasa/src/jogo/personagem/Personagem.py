@@ -11,3 +11,7 @@ class Personagem(AgenteJogo):
 
     def mostrar(self):
         """ Mostrar o estado do personagem. """
+        print(f"Estado Atual: {self._controlo.estado.name}")
+
+    def processar(self, percepcao):
+        return self._controlo.processar(percepcao)    

@@ -4,5 +4,6 @@ from abc import ABC, abstractmethod
     A Perceção representa a informação que o agente recebe do ambiente num determinado momento.
 """
 
-class Percepcao(ABC):
+class Percecao(ABC):
     """ Interface que representa uma ação """
+    pass

@@ -6,15 +6,18 @@ from abc import ABC, abstractmethod
 """
 
 from lib.agente.Agente import Agente
+from jogo.agente.PercepcaoJogo import PercepcaoJogo
 
 class AgenteJogo(Agente):
     def __init__(self, ambiente, controlo):
-        self.__ambiente = ambiente
         super().__init__(controlo)
+        self._ambiente = ambiente
 
-    def percecionar(self):
+    def _percecionar(self):
         """ Obter as perceções do ambiente. """
-        return self.__ambiente.percecionar(self)
+        return PercepcaoJogo(self._ambiente.observar())
 
-    def actuar(self):
+    def actuar(self, accao):
         """ Executar passo de pensamento """
+        if accao is not None:
+            self._ambiente.executar(accao)

@@ -1,0 +1,9 @@
+{
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/proj_iasa/src:${workspaceFolder}/proj_iasa/lib"
+    },
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/proj_iasa/src",
+        "${workspaceFolder}/proj_iasa/lib"
+    ]
+}

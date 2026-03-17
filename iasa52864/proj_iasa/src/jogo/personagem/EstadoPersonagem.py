@@ -6,3 +6,6 @@ class EstadoPersonagem(enum.Enum):
     INSPECAO = 'i'
     OBSERVACAO = 'o'
     REGISTO = 'r'
+
+    def mostrar(self):
+        return self.name

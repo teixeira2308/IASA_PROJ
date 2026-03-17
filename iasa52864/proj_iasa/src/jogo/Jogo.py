@@ -6,23 +6,30 @@ from jogo.personagem.Personagem import Personagem
 from jogo.ambiente.EventoJogo import EventoJogo
 
 
-class jogo:
+class Jogo:
     def __init__ (self):
-        self.__ambiente = AmbienteJogo(EventoJogo)
+        self.__ambiente = AmbienteJogo()
         self.__personagem = Personagem(self.__ambiente)
-
-    def Jogo(self):
-        return 0
+        self.__personagem.mostrar()
     
     def executar(self):
         while True:
             self.__ambiente.evoluir()
             self.__personagem.executar()
             self.__personagem.mostrar()
-            if self.observar() == True:
-                self.__personagem.mostrar()
-        pass        
+            
+            percepcao = self.__personagem._percecionar()
+
+            if percepcao.evento == EventoJogo.TERMINAR:
+                break
+
+            if percepcao.evento is None:
+                continue
+
+            accao = self.__personagem.processar(percepcao)
+            if accao:
+                self.__personagem._actuar(accao)
 
 
 if __name__ == "__main__":
-    jogo().executar()    
+    Jogo().executar()    

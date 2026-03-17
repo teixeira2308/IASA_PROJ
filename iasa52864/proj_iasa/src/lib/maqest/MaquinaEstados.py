@@ -1,11 +1,8 @@
 class MaquinaEstados:
-    def __init__(self):
-        self.__estado = None
+    def __init__(self, estado_inicial, transicoes = None):
+        self.__estado = estado_inicial
         self.__tte = {}
         self.__tae = {}
-
-    def MaquinaEstados(self, estado_incial, transicoes=None):
-        self.__estado = estado_incial
         if transicoes:
             for transicao in transicoes:
                 estado_ant, evento, estado_suc, accao = transicao \
@@ -23,6 +20,11 @@ class MaquinaEstados:
         if novo_estado is not None:
             self.__estado = novo_estado
         return accao    
+    
+
+    @property
+    def estado(self):
+        return self.__estado
 
 
         

@@ -2,28 +2,28 @@
     Define as regras do mundo e gere os eventos, sem ambiente não há eventos a processar.
 """
 
+from jogo.ambiente.EventoJogo import EventoJogo
+
 class AmbienteJogo:
-    def __init__(self, EventoJogo):
+    def __init__(self):
         self.__evento = None
         self.__eventos = {evento.value: evento for evento in EventoJogo}
 
     def observar(self):
-        return self.__eventos
+        return self.__evento
 
-    def _gerar_evento(self): 
+    def __gerar_evento(self): 
         texto = input("\nDigite um evento (s, r, a, f, o, t): ")
-        if texto in self.__eventos:
-            return self.__eventos.get(texto)
-        else:
-            print("Evento inválido. Tente novamente.")
-            return self._gerar_evento()
+        return self.__eventos.get(texto)
         
     def evoluir(self):
-        texto = input("\nDigite um comando (p, a, o, f): ")
-        self.__evento = self._gerar_evento()
+        self.__evento = self.__gerar_evento()
         if self.__evento is not None:
-            return self.__evento.get(texto)
+            self.__evento.mostrar()
         
     def executar(self, comando):
         comando.mostrar()
         pass    
+
+    def observar(self):
+        return self.__evento
