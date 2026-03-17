@@ -6,6 +6,7 @@ from jogo.personagem.ControloPersonagem import ControloPersonagem
 """
 
 class Personagem(AgenteJogo):
+    
     def __init__(self, ambiente):
         super().__init__(ambiente, ControloPersonagem())
 

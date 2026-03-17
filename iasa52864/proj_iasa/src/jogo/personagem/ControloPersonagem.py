@@ -6,6 +6,11 @@ from jogo.ambiente.EventoJogo import EventoJogo
 from jogo.personagem.EstadoPersonagem import EstadoPersonagem
 from lib.maqest.MaquinaEstados import MaquinaEstados
 
+"""É a gerencia do personagem com base na máquina
+de estados, com base no diagrama. Definimos todos
+os comportamentos do personagem com base no evento
+escolhido. """
+
 class ControloPersonagem:
     def __init__(self):
         self.__maq_est = None

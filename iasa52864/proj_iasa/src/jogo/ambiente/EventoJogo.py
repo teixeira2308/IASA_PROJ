@@ -1,5 +1,7 @@
 from enum import Enum
 
+"""Os eventos representam o que os sensores do agente captam."""
+
 class EventoJogo(Enum):
     SILENCIO = 's'
     RUIDO = 'r'
