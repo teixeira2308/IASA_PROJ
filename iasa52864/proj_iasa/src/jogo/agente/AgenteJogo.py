@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 """
     Atua como o controlador do topo do sistema. É a classe responsável por instanciar o AmbienteJogo e o Agente.
     Garante que o ciclo de vida do programa seja mantido.
+    A responsabilidade da classe é orquestrar a interação entre o controlo e o ambiente
+    de jogo.
 """
 
 from lib.agente.Agente import Agente

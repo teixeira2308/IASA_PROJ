@@ -1,3 +1,5 @@
-class Avancar:
+from lib.ecr.Accao import Accao
+from lib.sae import Movimento
+class Avancar(Movimento, Accao):
     def __init__(self):
-        pass
+        super().__init__()
