@@ -1,6 +1,9 @@
 """
     Define as regras do mundo e gere os eventos, sem ambiente não há eventos a processar.
 
+    Esta classe é responsável por representar o ambiente do jogo, que é o mundo onde os personagens atuam.
+    O ambiente é responsável por gerar eventos, que são as perceções dos personagens, e por executar as ações
+    dos personagens, que são as intenções de alterar o estado do ambiente.
 """
 
 from jogo.ambiente.EventoJogo import EventoJogo

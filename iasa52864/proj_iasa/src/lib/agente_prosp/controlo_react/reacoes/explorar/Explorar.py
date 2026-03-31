@@ -6,6 +6,13 @@ from lib.sae import Direccao
 
 """
     Comportamento reativo simples para exploração aleatória do ambiente.
+
+    Esta classe representa um comportamento de exploração aleatória,
+    onde o agente tem uma tendência a avançar na mesma direção, mas ocasionalmente
+    decide rodar para uma direção aleatória. A probabilidade de rodar é controlada
+    pelo parâmetro prob_rotacao, que pode ser ajustado para aumentar ou diminuir a 
+    tendência do agente para mudar de direção. Este comportamento é útil para permitir
+    que o agente explore o ambiente de uma forma mais inteligente e menos previsível.
 """
 
 class Explorar(Comportamento):
