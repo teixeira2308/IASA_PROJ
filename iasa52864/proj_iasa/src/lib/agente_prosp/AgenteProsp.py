@@ -10,7 +10,9 @@ import sae
 
 class AgenteProsp(Agente):
     def _percecionar(self):
+        """Percecionar com base no transdutor da plataforma SAE."""
         return sae.transdutor.percepcionar()
 
     def _actuar(self, acao):
+        """Actuar com base no transdutor da plataforma SAE."""
         return sae.transdutor.actuar(acao)

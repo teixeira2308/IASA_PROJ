@@ -1,13 +1,14 @@
 import random
 from lib.agente_prosp.accoes.Avancar import Avancar
 from lib.agente_prosp.accoes.Rodar import Rodar
-from lib.sae.ambiente.direccao import Direccao
+from lib.ecr.Comportamento import Comportamento
+from lib.sae import Direccao
 
 """
     Comportamento reativo simples para exploração aleatória do ambiente.
 """
 
-class Explorar:
+class Explorar(Comportamento):
     def __init__(self, prob_rotacao=0.7):
         """
             Define a tendencia do agente para mudar de direção

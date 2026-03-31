@@ -24,4 +24,4 @@ class ControloReact(Comportamento):
             Método principal chamado pelo ciclo de execução do agente.
             Redireciona a perceção para a lógica de ativação
         """
-        return self.ativar(percecao)
+        return self.__comportamento.ativar(percecao)
