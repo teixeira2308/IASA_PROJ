@@ -5,6 +5,9 @@ from pee.mec_proc import No
     O Mecanismo de Procura é o componente responsável por encontrar uma solução
     para um problema. Ele utiliza uma estrutura de dados chamada fronteira para armazenar os nós
     que foram gerados mas ainda não foram explorados. 
+    Esta classe é uma implementação do mecanismo de procura, 
+    onde a estratégia de procura é definida pela estrutura de dados
+    utilizada na fronteira.
 """
 
 class MecanismoProcura:
