@@ -8,7 +8,7 @@ from jogo.ambiente.EventoJogo import EventoJogo
 
 class Jogo:
     def __init__ (self):
-        self.__ambiente = AmbienteJogo()
+        self.__ambiente = AmbienteJogo() 
         self.__personagem = Personagem(self.__ambiente)
         self.__personagem.mostrar()
     

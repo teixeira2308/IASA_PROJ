@@ -15,5 +15,6 @@ class FronteiraLIFO(Fronteira):
             Insere um nó na fronteira. O nó é adicionado no final da lista,
             garantindo que o último nó inserido seja o primeiro a ser removido.
         """
-        self.__lista.append(no)
+        self._nos.append(no)
         pass
+

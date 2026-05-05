@@ -1,5 +1,5 @@
 from lib.pee.mec_proc.Solucao import Solucao
-from pee.mec_proc import No
+from pee.mec_proc.No import No
 
 """
     O Mecanismo de Procura é o componente responsável por encontrar uma solução
@@ -16,13 +16,13 @@ class MecanismoProcura:
             O mecanismo é injetado por uma fronteira, o que define
             a estratégia de procura.
         """
-        self.fronteira = fronteira
+        self._fronteira = fronteira
 
     def _iniciar_memoria(self):
-        self.fronteira.iniciar()
+        self._fronteira.iniciar()
 
     def _memorizar(self, no):
-        self.fronteira.inserir(no)
+        self._fronteira.inserir(no)
 
     def procurar(self, problema):
         """

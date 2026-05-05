@@ -16,3 +16,12 @@ class ProblemaContagem(Problema):
         ## O estado inicial é criado a partir do valor de contagem inicial, e os operadores
         ## de incremento são criados a partir dos valores de incremento recebidos como parâmetro.
         self.__contagem_final = contagem_final # O valor de contagem final é armazenado como atributo privado.
+
+    def objetivo(self, estado):
+        """
+            Este método é responsável por verificar se um estado de contagem é um estado objetivo.
+            Ele recebe um estado de contagem como parâmetro e retorna True se o valor de contagem
+            do estado for maior ou igual ao valor de contagem final, indicando que o objetivo foi alcançado,
+            ou False caso contrário.
+        """
+        return estado.contagem >= self.__contagem_final

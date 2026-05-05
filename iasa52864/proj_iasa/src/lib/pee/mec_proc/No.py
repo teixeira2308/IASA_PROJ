@@ -14,6 +14,9 @@ class No:
         """
         self.__custo = custo if custo is not None else 0 #custo acumulado para chegar ao nó atual, se não for fornecido, assume-se 0
         self.__prioridade = 0 
+        self.__estado = estado #estado do nó, que é a configuração que o nó representa
+        self.__operador = operador #operador do nó, que é a ação que foi
+
 
         if antecessor:
             self.__profundidade = antecessor.profundidade + 1 #se tiver um antecessor, a profundidade é a profundidade do antecessor + 1
@@ -50,3 +53,17 @@ class No:
             Retorna a profundidade do nó na árvore de procura. Getter.
         """
         return self.__profundidade            
+
+    @property
+    def estado(self):
+        """
+            Retorna o estado do nó, que é a configuração que o nó representa. Getter.
+        """
+        return self.__estado
+    
+    @property
+    def operador(self):
+        """
+            Retorna o operador do nó, que é a ação que foi aplicada ao antecessor para gerar o nó atual. Getter.
+        """
+        return self.__operador
