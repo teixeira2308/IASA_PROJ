@@ -5,7 +5,9 @@
     pela posição ocupada e por um valor único associado a essa posição.
 """
 
-class EstadoAgente:
+from lib.mod.Estado import Estado
+
+class EstadoAgente(Estado):
     def __init__(self, posicao):
         """
             Inicializa um estado do agente.
@@ -25,3 +27,7 @@ class EstadoAgente:
             O valor é calculado a partir da posição.
         """
         return self.__id_valor
+    
+    @property
+    def posicao(self):
+        return self.__posicao

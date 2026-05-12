@@ -3,6 +3,7 @@ from src.agente_prosp.ControloDeLib.modelo.EstadoAgente import EstadoAgente
 from sae import Direccao
 import math
 from sae import Elemento
+from plan.modelo.ModeloPlan import ModeloPlan
 
 """
     Modelo do mundo.
@@ -12,7 +13,7 @@ from sae import Elemento
     para a deliberação e para o planeamento das ações.
 """
 
-class ModeloMundo:
+class ModeloMundo(ModeloPlan):
     def __init__(self):
         """
             Inicializa o modelo do mundo.
@@ -28,6 +29,10 @@ class ModeloMundo:
         self.__operadores = [OperadorMover(self, direcao) for direcao in Direccao]
         self.__alterado = False
         pass
+
+    @property
+    def elementos(self):
+        return self.__elementos
 
     def __contains__(self, estado):
         """

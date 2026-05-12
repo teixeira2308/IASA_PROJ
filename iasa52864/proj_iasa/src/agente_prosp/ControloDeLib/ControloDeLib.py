@@ -1,6 +1,6 @@
 from src.agente_prosp.ControloDeLib.modelo.ModeloMundo import ModeloMundo
 from src.agente_prosp.ControloDeLib.MecDeLib import MecDeLib
-
+import sae
 
 """
     Controlo deliberativo.
@@ -28,12 +28,22 @@ class ControloDeLib:
         self.__plano = None
 
     def processar(self, percecao):
+        """
+            Ciclo de execução do agente deliberativo.
+            Coordena a atualização de considerações, deliberação, planeamento
+            de ações e execução.
+        """
+        self.__assimilar(percecao)
+        #se houve mudança no mundo ou o plano terminou, reconsidera a estratégia
+        if self.__reconsiderar():
+            self.__deliberar()
+            self.__planear()
+        return self.__executar()    
 
-        pass
 
     def __assimilar(self, percecao):
         """
-            Integra a nova perceção no modelo do mundo.
+            Integra a nova perceção no modelo do mundo com base nas novas perceções.
         """
         self.__modeloMundo.atualizar(percecao)
         pass
@@ -55,13 +65,36 @@ class ControloDeLib:
             os objetivos que o agente deverá perseguir no ciclo corrente.
         """
         self.__objetivos = self.__mecDelib.deliberar()
-        pass
 
     def __planear(self):
-        pass
+        if self.__objetivos:
+            #gerar plano
+            self.__plano = self.__planeador.planear(self.__modeloMundo, self.__objetivos)
+        else:
+            #anular plano
+            self.__plano = None
     
     def __executar(self):
-        pass
+        """
+            Extrai a próxima ação do plano para o estado atual.
+            Se o plano não prevê o estado atual, o plano é invalidado.
+        """
+        if self.__plano:
+            estado = self.__modeloMundo.obter_estado()
+            # Obtém o operador agendado para o estado atual no plano
+            operador = self.__plano.obter_estado(estado)
+            if operador:
+                return operador.accao
+            else:
+                # Se o estado atual não está no plano, forçar replaneamento no próximo ciclo.
+                self.__plano = None
 
     def __mostrar(self):
-        pass
+        sae.vista.limpar()
+        self.__modeloMundo.mostrar(sae.vista)
+        if self.__plano:
+            self.__plano.mostrar(sae.vista)
+        if self.__objetivos:
+            for objetivo in self.__objetivos:
+                sae.vista.marcar_posicao(objetivo.posicao)    
+        

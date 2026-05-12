@@ -1,5 +1,7 @@
 from src.agente_prosp.accoes.Mover import Mover
 import math
+from lib.mod.Operador import Operador
+from src.agente_prosp.ControloDeLib.modelo.EstadoAgente import EstadoAgente
 
 """
     Operador de movimento.
@@ -9,7 +11,7 @@ import math
     e o respetivo custo.
 """
 
-class OperadorMover():
+class OperadorMover(Operador):
     def __init__(self, modelo_mundo, direcao):
         """
             Inicializa o operador de movimento.
@@ -27,7 +29,18 @@ class OperadorMover():
         pass
 
     def aplicar(self, estado):
-        pass
+        x = estado.posicao.x
+        y = estado.posicao.y
+        passo = self.__acao.passo
+        ang = self.__ang
+        #calculo das novas coordenadas
+        dx = passo*math.cos(ang)
+        dy = -passo*math.sin(ang)
+        coordenadas = (x+dx, y+dy)
+        
+        estado_suc = EstadoAgente(coordenadas)
+        if estado_suc in self.__modelo_mundo:
+            return estado_suc
 
     def custo(self, estado, estado_suc):
         """

@@ -1,8 +1,8 @@
-from lib.agente_prosp.controlo_react.reacoes.explorar.Explorar import Explorar
-from lib.agente_prosp.controlo_react.ControloReact import ControloReact
-from lib.agente_prosp.AgenteProsp import AgenteProsp
+from agente_prosp.controlo_react.reacoes.explorar.Explorar import Explorar
+from agente_prosp.controlo_react.ControloReact import ControloReact
+from agente_prosp.AgenteProsp import AgenteProsp
 from lib.sae import Simulador
-from lib.agente_prosp.controlo_react.reacoes.recolher.Recolher import Recolher
+from agente_prosp.controlo_react.reacoes.recolher.Recolher import Recolher
 
 """
     Este módulo é um teste para o agente prospectivo com controlo reativo.

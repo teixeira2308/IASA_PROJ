@@ -26,10 +26,8 @@ class MecDeLib:
             Gera objetivos possíveis com base no modelo do mundo e 
             depois seleciona os mais adequados segundo um critério.
         """
-        objetivos = self.__gerar_objetivos()
-        if objetivos:
+        if objetivos := self.__gerar_objetivos:
             return self.__selecionar_objetivos(objetivos)
-        return None
 
     def __gerar_objetivos(self):
         """
